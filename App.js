@@ -1,6 +1,8 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image} from 'react-native';
+import {SafeAreaView, View, Text, Image, FlatList} from 'react-native';
 import Title from './components/Title/Title';
+import globalStyle from './style/globalStyle';
+import UserStory from './components/UserStory/UserStory';
 
 const App = () => {
   const userStories = [
@@ -53,6 +55,20 @@ const App = () => {
   return (
     <SafeAreaView>
       <Title title={"Let's Explore"} />
+
+      <View style={globalStyle.userStoryContainer}>
+        <FlatList
+          data={userStories}
+          horizontal={true}
+          showsHorizontalScrollIndicator={true}
+          renderItem={({item}) => (
+            <UserStory
+              firstName={item.firstName}
+              profileImage={item.profileImage}
+            />
+          )}
+        />
+      </View>
     </SafeAreaView>
   );
 };
