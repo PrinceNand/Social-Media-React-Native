@@ -64,9 +64,9 @@ const App = () => {
   return (
     <SafeAreaView>
       <View style={globalStyle.header}>
-        // Title
+        {/* Title */}
         <Title title={"Let's Explore"} />
-        // Message icon beside Title
+        {/* Message icon beside Title */}
         <TouchableOpacity style={globalStyle.messageMain}>
           <FontAwesomeIcon icon={faEnvelope} size={20} color={'#898DAE'} />
           <View style={globalStyle.messageNumberContainer}>
@@ -74,7 +74,7 @@ const App = () => {
           </View>
         </TouchableOpacity>
       </View>
-      // FlatList scroll View
+      {/* FlatList scroll View */}
       <View style={globalStyle.userStoryContainer}>
         <FlatList
           data={userStories}
