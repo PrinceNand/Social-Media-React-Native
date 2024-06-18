@@ -1,8 +1,17 @@
 import React from 'react';
-import {SafeAreaView, View, Text, Image, FlatList} from 'react-native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from 'react-native';
 import Title from './components/Title/Title';
 import globalStyle from './style/globalStyle';
 import UserStory from './components/UserStory/UserStory';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 const App = () => {
   const userStories = [
@@ -54,8 +63,18 @@ const App = () => {
   ];
   return (
     <SafeAreaView>
-      <Title title={"Let's Explore"} />
-
+      <View style={globalStyle.header}>
+        // Title
+        <Title title={"Let's Explore"} />
+        // Message icon beside Title
+        <TouchableOpacity style={globalStyle.messageMain}>
+          <FontAwesomeIcon icon={faEnvelope} size={20} color={'#898DAE'} />
+          <View style={globalStyle.messageNumberContainer}>
+            <Text style={globalStyle.messageNumber}>2</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      // FlatList scroll View
       <View style={globalStyle.userStoryContainer}>
         <FlatList
           data={userStories}
